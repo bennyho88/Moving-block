@@ -1,26 +1,26 @@
-#square {
-    height: 50px;
-    width: 50px;
-    background-color: blue;
-}
-
 #person {
+    background: url(./images/stickperson.png);
+    background-size: cover;
+    background-position: center;
     height: 100px;
     width: 75px;
+    position: absolute;
 }
 
 #durian {
+    background: url(./images/durian\ 2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100px;
     width: 75px;
 }
 
-#tutorial {
-    border: black solid 5px;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    display: block;
-
+#container {
+    width: 600px;
+    height: 600px;
+    background-color: yellowgreen;
+    margin: 0 auto;
+    margin-top: 25px;
+    position: relative;
 }

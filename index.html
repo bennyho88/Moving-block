@@ -8,84 +8,45 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <body onkeydown="getKeyAndMove(event)">
-    <canvas id="tutorial" width="500" height="500"></canvas>
-    <!--
-      <img src="images/stickperson.png" alt="" id="person" />
-      <img src="images/durian 2.jpg" alt="" id="durian" />
-    -->
+  <body>
+    <div id="container">
+      <div id="person"></div>
+      <div id="durian"></div>
+    </div>
 
     <script>
-      /*
-        var square = document.getElementById("square");
-
-        square.addEventListener("keydown", arrow);
-        */
-
-      /*
-      var objImage = null;
+      document.onkeydown = moveSelection;
       var durian = document.getElementById("durian");
+      var person = document.getElementById("person");
+      var left = 0;
+      var top = 0;
 
-      function init() {
-        objImage = document.getElementById("person");
-        objImage.style.position = "relative";
-        objImage.style.left = "0px";
-        objImage.style.top = "0px";
-      }
-
-      function getKeyAndMove(e) {
-        var key_code = e.which || e.keyCode;
-        switch (key_code) {
-          case 37: //left arrow key
-            moveLeft();
-            break;
-          case 38: //Up arrow key
-            moveUp();
-            break;
-          case 39: //right arrow key
-            moveRight();
-            break;
-          case 40: //down arrow key
-            moveDown();
-            break;
+      function moveSelection(e) {
+        console.log("tedst");
+        if (e.keyCode == 37) {
+          left -= 5;
+          person.style.left = left + "px";
+          console.log(left);
         }
-      }
 
-      function moveLeft() {
-        objImage.style.left = parseInt(objImage.style.left) - 5 + "px";
-      }
+        if (e.keyCode == 40) {
+          top += 5;
+          person.style.top = top + "px";
+          console.log(top);
+        }
 
-      function moveUp() {
-        objImage.style.top = parseInt(objImage.style.top) - 5 + "px";
-      }
-
-      function moveRight() {
-        objImage.style.left = parseInt(objImage.style.left) + 5 + "px";
-      }
-
-      function moveDown() {
-        objImage.style.top = parseInt(objImage.style.top) + 5 + "px";
-      }
-      window.onload = init;
-
-    */
-
-      var rect1 = { x: 5, y: 5, width: 50, height: 50 };
-      var rect2 = { x: 20, y: 10, width: 10, height: 10 };
-
-      if (
-        rect1.x < rect2.x + rect2.width &&
-        rect1.x + rect1.width > rect2.x &&
-        rect1.y < rect2.y + rect2.height &&
-        rect1.y + rect1.height > rect2.y
-      ) {
-        // collision detected!
-      }
-
-      // filling in the values =>
-
-      if (5 < 30 && 55 > 20 && 5 < 20 && 55 > 10) {
-        // collision detected!
+        if (e.keyCode == 39) {
+          left += 5;
+          person.style.left = left + "px";
+          console.log(left);
+        }
+        /*
+        if (e.keyCode == 38) {
+          top -= 5;
+          person.style.top = top + "px";
+          console.log(top);
+        }
+        */
       }
     </script>
   </body>
