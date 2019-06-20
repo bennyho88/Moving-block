@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <h1>Fruit eaten today:</h1>
+    <span id="counter">0</span>
+
     <div id="container">
       <div id="person"></div>
       <div id="durian"></div>
@@ -16,37 +19,75 @@
 
     <script>
       document.onkeydown = moveSelection;
+
       var durian = document.getElementById("durian");
       var person = document.getElementById("person");
-      var left = 0;
-      var top = 0;
+      var container = document.getElementById("container");
+      var counter = document.getElementById("counter");
+      var quantity = 0;
+      var positionY = 0;
+      var positionX = 0;
+      durian.style.left = 300 + "px";
+      durian.style.top = 300 + "px";
+
+      // Movement of the person
 
       function moveSelection(e) {
-        console.log("tedst");
-        if (e.keyCode == 37) {
-          left -= 5;
-          person.style.left = left + "px";
-          console.log(left);
+        var foodBlockPosition = durian.getBoundingClientRect();
+        var foodTop = foodBlockPosition.top;
+        var foodLeft = foodBlockPosition.left;
+        var foodRight = foodBlockPosition.right;
+        var foodBottom = foodBlockPosition.bottom;
+        console.log(foodTop, foodLeft, foodRight, foodBottom);
+
+        var personBlockPosition = person.getBoundingClientRect();
+
+        var personTop = personBlockPosition.top;
+        var personLeft = personBlockPosition.left;
+        var personRight = personBlockPosition.right;
+        var personBottom = personBlockPosition.bottom;
+        console.log(personTop, personLeft, personRight, personBottom);
+
+        if (e.keyCode == 37 && positionX >= 0) {
+          positionX -= 5;
+          person.style.left = positionX + "px";
         }
 
-        if (e.keyCode == 40) {
-          top += 5;
-          person.style.top = top + "px";
-          console.log(top);
+        if (e.keyCode == 40 && positionY <= 500) {
+          positionY += 5;
+          person.style.top = positionY + "px";
         }
 
-        if (e.keyCode == 39) {
-          left += 5;
-          person.style.left = left + "px";
-          console.log(left);
+        if (e.keyCode == 39 && positionX <= 525) {
+          positionX += 5;
+          person.style.left = positionX + "px";
         }
-        /*
-        if (e.keyCode == 38) {
-          top -= 5;
-          person.style.top = top + "px";
-          console.log(top);
+
+        if (e.keyCode == 38 && positionY >= 0) {
+          positionY -= 5;
+          person.style.top = positionY + "px";
         }
-        */
+
+        var rect1 = { x: personLeft, y: personTop, width: 75, height: 100 };
+        var rect2 = { x: foodLeft, y: foodTop, width: 75, height: 100 };
+
+        if (
+          rect1.x < rect2.x + rect2.width &&
+          rect1.x + rect1.width > rect2.x &&
+          rect1.y < rect2.y + rect2.height &&
+          rect1.y + rect1.height > rect2.y
+        ) {
+          // collision detected!
+
+          var randomPositionX = Math.random() * 525;
+          var randomPositionY = Math.random() * 500;
+
+          durian.style.left = randomPositionX + "px";
+          durian.style.top = randomPositionY + "px";
+
+          quantity++;
+          counter.innerHTML = quantity;
+        }
       }
     </script>
   </body>

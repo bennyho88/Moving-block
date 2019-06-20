@@ -1,26 +1,28 @@
 #person {
-    background: url(./images/stickperson.png);
-    background-size: cover;
-    background-position: center;
-    height: 100px;
-    width: 75px;
-    position: absolute;
+  background-image: url(./images/stickperson.png);
+  background-size: cover;
+  background-position: center;
+  height: 100px;
+  width: 75px;
+  position: absolute;
+  z-index: 100;
 }
 
 #durian {
-    background: url(./images/durian\ 2.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100px;
-    width: 75px;
+  background-image: url(./images/durian-2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 75px;
+  position: absolute;
 }
 
 #container {
-    width: 600px;
-    height: 600px;
-    background-color: yellowgreen;
-    margin: 0 auto;
-    margin-top: 25px;
-    position: relative;
+  width: 600px;
+  height: 600px;
+  background-color: yellowgreen;
+  margin: 0 auto;
+  margin-top: 25px;
+  position: relative;
 }
