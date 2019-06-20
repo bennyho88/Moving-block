@@ -1,20 +1,29 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
 #person {
-  background-image: url(./images/stickperson.png);
+  background-image: url(./images/monkey.jpg);
   background-size: cover;
   background-position: center;
   height: 100px;
   width: 75px;
   position: absolute;
-  z-index: 100;
+
 }
 
 #durian {
-  background-image: url(./images/durian-2.jpg);
+  background-image: url(./images/banana-2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100px;
-  width: 75px;
+  width: 100px;
   position: absolute;
 }
 
@@ -25,4 +34,26 @@
   margin: 0 auto;
   margin-top: 25px;
   position: relative;
+}
+
+header {
+  background-color: yellow;
+  height: 75px;
+
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  line-height: 75px;
+}
+
+#counter {
+  font-weight: bold;
+  position: relative;
+  left: 800px;
+  bottom: 80px;
+  line-height: 75px;
+
 }
